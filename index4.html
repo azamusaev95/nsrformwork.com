@@ -171,29 +171,6 @@
         #050406;
     }
 
-    /* #video — видео блок */
-    #video{
-      background:
-        radial-gradient(circle at 18% 15%, rgba(226,70,85,0.18) 0%, transparent 60%),
-        radial-gradient(circle at 85% 80%, rgba(255,204,102,0.10) 0%, transparent 62%),
-        linear-gradient(180deg, #060405 0%, var(--bg) 100%);
-      border-top: 1px solid var(--line);
-    }
-    .video-wrap{
-      aspect-ratio: 16 / 9;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: #000;
-      box-shadow: 0 20px 56px rgba(0,0,0,0.52);
-    }
-    .video-wrap iframe{
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
     /* #faq — micro dots */
     #faq{
       background: linear-gradient(180deg, #050406, #040204);
@@ -337,16 +314,6 @@
       margin-top: 4px;
       filter: drop-shadow(0 12px 20px rgba(226,70,85,0.18));
     }
-    /* чтобы SVG-иконки вели себя как lucide */
-    .feature-item svg {
-      width: 22px;
-      height: 22px;
-      flex-shrink: 0;
-      margin-top: 4px;
-      filter: drop-shadow(0 12px 20px rgba(226,70,85,0.18));
-      display: block;
-    }
-    .ig-icon { color: #E1306C; } /* узнаваемый Instagram */
     .feature-item b { display: block; font-size: 15px;  }
     .feature-item span { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
 
@@ -453,7 +420,6 @@
           <a href="#about">О компании</a>
           <a href="#params">Для КП</a>
           <a href="#kit">Система</a>
-          <a href="#video">Видео</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div class="actions">
@@ -659,63 +625,6 @@
     </div>
   </section>
 
-  <!-- ВИДЕО БЛОК (YouTube) -->
-  <section id="video">
-    <div class="container">
-      <h2 class="section-title">Видео</h2>
-      <p class="section-sub">Смотреть наши материалы на YouTube: производство, проекты, система и процесс на объекте.</p>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3 style="display:flex; align-items:center; gap:10px; margin-top:0;">
-            <i data-lucide="play-circle"></i> Канал NSR Construction
-          </h3>
-
-          <div class="video-wrap" style="margin-top: 18px;">
-            <iframe
-              loading="lazy"
-              title="NSR Construction — YouTube"
-              src="https://www.youtube.com/embed?listType=user_uploads&list=nsrconstructionn"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
-          </div>
-
-          <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
-            <a class="btn" href="https://youtube.com/@nsrconstructionn?si=6F6xguWglU6hwVMo" target="_blank" rel="noopener">
-              <i data-lucide="external-link" style="width:18px"></i> Перейти на канал
-            </a>
-          </div>
-        </div>
-
-        <div class="card" style="border-color: rgba(255,204,102,0.30);">
-          <h3 style="display:flex; align-items:center; gap:10px; margin-top:0;">
-            <i data-lucide="info"></i> Что вы увидите
-          </h3>
-
-          <div class="feature-item" style="margin-top: 14px;">
-            <i data-lucide="factory"></i>
-            <div><b>Производство</b><span>Материалы, сборка, контроль качества и ресурс системы.</span></div>
-          </div>
-          <div class="feature-item">
-            <i data-lucide="building-2"></i>
-            <div><b>Проекты и кейсы</b><span>Как туннельная технология ускоряет строительство на серии объектов.</span></div>
-          </div>
-          <div class="feature-item">
-            <i data-lucide="hard-hat"></i>
-            <div><b>Сервис на объекте</b><span>Сопровождение, обучение, поддержка первой заливки.</span></div>
-          </div>
-
-          <div style="margin-top: 18px; border-top: 1px solid var(--line); padding-top: 18px;">
-            <button class="btn primary" data-open-modal="quote" style="width: 100%; justify-content: center;">
-              <i data-lucide="calculator" style="width:18px"></i> Запрос КП
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="faq">
     <div class="container">
       <h2 class="section-title">FAQ по производству и поставке</h2>
@@ -749,47 +658,27 @@
         <div>
           <h2 style="margin: 0 0 24px;">Связаться с инженером</h2>
           <div style="display: grid; gap: 16px;">
-            <a href="tel:+905466573423" class="feature-item">
+            <a href="tel:+905466573423" class="feature-item"">
               <i data-lucide="phone"></i>
               <div><b>Телефон (TR)</b><span>+90 546 657 34 23</span></div>
             </a>
-
-            <a href="tel:+996706909521" class="feature-item">
+            <a href="tel:+996706909521" class="feature-item" >
               <i data-lucide="phone"></i>
               <div><b>Телефон (KG)</b><span>+996 706 90 95 21</span></div>
             </a>
-
-            <!-- WhatsApp (правильная иконка через SVG) -->
-            <a href="https://wa.me/996706909521" class="feature-item" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="#25D366" d="M20.52 3.48A11.91 11.91 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.95c0 2.1.55 4.16 1.6 5.98L0 24l6.23-1.63a11.9 11.9 0 0 0 5.78 1.48h.01c6.6 0 11.95-5.35 11.95-11.95 0-3.19-1.24-6.19-3.45-8.42ZM12.01 21.9h-.01a9.95 9.95 0 0 1-5.07-1.39l-.36-.21-3.7.97.99-3.61-.23-.37a9.95 9.95 0 0 1-1.53-5.34C2.1 6.43 6.49 2.05 12.02 2.05c2.65 0 5.15 1.03 7.03 2.9a9.87 9.87 0 0 1 2.92 7.01c0 5.52-4.48 9.94-9.96 9.94Zm5.77-7.43c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.71.15-.21.31-.82 1.01-1 1.22-.18.2-.36.23-.67.08-.31-.15-1.29-.47-2.46-1.51-.91-.81-1.52-1.81-1.7-2.12-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.03-.54-.08-.15-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.6c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56s1.11 2.97 1.26 3.17c.15.21 2.19 3.34 5.31 4.69.74.32 1.32.51 1.77.66.74.24 1.41.21 1.95.13.59-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.6-.36Z"/>
-              </svg>
-              <div><b>WhatsApp</b><span>Написать инженеру</span></div>
+            <a href="https://wa.me/996706909521" class="feature-item" >
+              <i data-lucide="message-circle" style="color: #25d366;"></i> <div><b>WhatsApp</b><span>Написать инженеру</span></div>
             </a>
-
-            <!-- Instagram (правильная ссылка + иконка) -->
-            <a href="https://www.instagram.com/nsr.construction?igsh=MXhxMzFzMWw0NXFmcA==" class="feature-item" target="_blank" rel="noopener">
-              <i data-lucide="instagram" class="ig-icon"></i>
-              <div><b>Instagram</b><span>nsr.construction</span></div>
+            <a href="https://wa.me/996706909521" class="feature-item" >
+              <i data-lucide="message-circle" style="color: #25d366;"></i> <div><b>Instagram</b><span>Написать инженеру</span></div>
             </a>
-
-            <div class="feature-item">
-              <i data-lucide="mail"></i>
-              <div><b>Email</b><span>sale@nsr.kg • ceo@nsr.kg</span></div>
-            </div>
-
-            <a href="https://nsr-construction.kg" class="feature-item" target="_blank" rel="noopener">
-              <i data-lucide="globe"></i>
-              <div><b>Сайт</b><span>www.nsrformwork.com</span></div>
+            <div class="feature-item"><i data-lucide="mail"></i> <div><b>Email</b><span>sale@nsr.kg • ceo@nsr.kg</span></div></div>
+            <a href="https://nsr-construction.kg" class="feature-item" >
+              <i data-lucide="globe"></i> <div><b>Сайт</b><span>www.nsrformwork.com</span></div>
             </a>
-
-            <div class="feature-item">
-              <i data-lucide="map-pin"></i>
-              <div><b>Адрес</b><span>ул. Садырбаева, 261</span></div>
-            </div>
+            <div class="feature-item"><i data-lucide="map-pin"></i> <div><b>Адрес</b><span>ул. Садырбаева, 261</span></div></div>
           </div>
         </div>
-
         <div class="card">
           <h3 style="margin: 0 0 16px;">Поставка и поддержка</h3>
           <p style="color: var(--muted); font-size: 14px;">

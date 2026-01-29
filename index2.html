@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="ru" style="scroll-behavior: smooth; scroll-padding-top: 90px;">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Опалубка/формворк для монолита в Бишкеке: инженерный расчёт, комплектация, доставка. NSR Formwork." />
+  <title>NSR Formwork — Профессиональный расчёт и комплектация опалубки</title>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#121a27;
+      --muted:#a3b4cc;
+      --text:#e8eef7;
+      --line:#223149;
+      --accent:#4da3ff;
+      --accent2:#69f0ae;
+      --danger:#ff5c7a;
+      --warning:#ffcc33;
+      --shadow: 0 12px 40px rgba(0,0,0,.4);
+      --radius: 20px;
+      --max: 1140px;
+
+      --bp-grid: rgba(77,163,255,0.035);
+      --bp-grid-strong: rgba(77,163,255,0.055);
+      --bp-glow: rgba(77,163,255,0.09);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--accent); }
+
+    section { padding: 100px 0; position: relative; overflow: hidden; }
+    section .container,
+    main .container,
+    footer .container { position: relative; z-index: 1; }
+
+    /* HERO */
+    .hero-bg {
+      position: relative;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(77,163,255,0.10) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(105,240,174,0.08) 0%, transparent 40%),
+        var(--bg);
+      overflow:hidden;
+    }
+    .hero-bg::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(var(--bp-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px),
+        linear-gradient(var(--bp-grid-strong) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bp-grid-strong) 1px, transparent 1px);
+      background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+      opacity: .85;
+    }
+    .hero-frame{
+      position:absolute;
+      inset:24px;
+      border: 1px solid rgba(77,163,255,0.14);
+      border-radius: 26px;
+      pointer-events:none;
+      opacity:.9;
+    }
+    .hero-corner{
+      position:absolute;
+      width:42px; height:42px;
+      border:2px solid rgba(105,240,174,0.18);
+      border-radius: 10px;
+      pointer-events:none;
+    }
+    .hero-corner.tl{top:18px;left:18px;border-right:none;border-bottom:none}
+    .hero-corner.tr{top:18px;right:18px;border-left:none;border-bottom:none}
+    .hero-corner.bl{bottom:18px;left:18px;border-right:none;border-top:none}
+    .hero-corner.br{bottom:18px;right:18px;border-left:none;border-top:none}
+
+    /* #for — сетка */
+    #for{
+      background-color: #0b111a;
+      border-top: 1px solid var(--line);
+    }
+    #for::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        linear-gradient(var(--bp-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px),
+        linear-gradient(var(--bp-grid-strong) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bp-grid-strong) 1px, transparent 1px);
+      background-size: 22px 22px, 22px 22px, 110px 110px, 110px 110px;
+      opacity:.9;
+    }
+    #for::after{
+      content:"";
+      position:absolute;
+      inset:-140px -180px;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(77,163,255,0.10), transparent 45%),
+        radial-gradient(circle at 90% 70%, rgba(105,240,174,0.06), transparent 55%);
+      opacity:.9;
+    }
+
+    /* #params — чистый градиент */
+    #params{
+      background: radial-gradient(circle at center, #16202e 0%, var(--bg) 100%);
+    }
+
+    /* #calc — диагональные полосы */
+    #calc{
+      background: repeating-linear-gradient(-45deg, #080b12, #080b12 25px, #0b0f17 25px, #0b0f17 50px);
+    }
+
+    /* #kit — “сталь” */
+    #kit{
+      background: linear-gradient(180deg, #0b0f17 0%, #121a27 50%, #0b0f17 100%);
+      border-top: 1px solid var(--line);
+    }
+    #kit::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(
+          180deg,
+          rgba(255,255,255,0.02) 0px,
+          rgba(255,255,255,0.02) 1px,
+          transparent 1px,
+          transparent 18px
+        );
+      opacity:.5;
+    }
+
+    /* #risks — glow */
+    #risks{
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255,204,51,0.05) 0%, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(77,163,255,0.05) 0%, transparent 55%),
+        #0b0f17;
+    }
+
+    /* #faq — micro dots */
+    #faq{
+      background: linear-gradient(180deg, #0b0f17, #0a0d14);
+    }
+    #faq::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background-image: radial-gradient(rgba(163,180,204,0.12) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.08;
+    }
+
+    /* footer */
+    footer{
+      position: relative;
+      overflow:hidden;
+      background: #070a10;
+      border-top: 1px solid var(--line);
+    }
+    footer::before{
+      content:"";
+      position:absolute;
+      inset:-160px -200px;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 15% 30%, rgba(77,163,255,0.10), transparent 55%),
+        radial-gradient(circle at 85% 70%, rgba(105,240,174,0.06), transparent 55%);
+      opacity:.8;
+    }
+
+    /* UI */
+    .topbar {
+      position: sticky; top: 0; z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(11,15,23,0.85);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+
+    nav { display: flex; gap: 4px; }
+    nav a { font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: 10px; color: var(--muted); }
+    nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+
+    .btn {
+      appearance: none; border: 1px solid rgba(77,163,255,0.3);
+      background: rgba(77,163,255,0.1); color: var(--text);
+      padding: 14px 24px; border-radius: 14px; font-weight: 700; font-size: 14px;
+      cursor: pointer; display: inline-flex; gap: 10px; align-items: center; transition: 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); background: rgba(77,163,255,0.2); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .btn.primary { border-color: var(--accent2); background: rgba(105,240,174,0.15); }
+    .btn.primary:hover { background: rgba(105,240,174,0.25); }
+
+    .card {
+      background: rgba(18,26,39,0.7); border: 1px solid var(--line);
+      backdrop-filter: blur(10px); border-radius: var(--radius);
+      padding: 32px; transition: 0.3s; height: 100%;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .section-title { font-size: 36px; font-weight: 800; letter-spacing: -1px; margin: 0 0 16px; }
+    .section-sub { font-size: 18px; color: var(--muted); margin-bottom: 48px; max-width: 800px; }
+
+    .fact{
+      display:flex; gap:12px; align-items:flex-start;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(18,26,39,0.55);
+      backdrop-filter: blur(8px);
+    }
+    .fact i{ width:22px; height:22px; color: var(--accent2); margin-top:2px; flex:0 0 auto; }
+    .fact b{ display:inline; font-size:14px; }
+    .fact span{ color: var(--muted); font-size:13.5px; line-height:1.35; }
+
+    .params-table { border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: rgba(18,26,39,0.4); }
+    .row {
+      display: grid; grid-template-columns: 260px 1fr 200px; gap: 20px; padding: 20px 24px;
+      border-top: 1px solid var(--line); align-items: center;
+    }
+    .row:first-child { border: none; background: rgba(255,255,255,0.03); }
+    .row .k { color: var(--accent); font-weight: 700; }
+    .row .ex { font-size: 12px; color: var(--muted); padding: 6px 12px; border: 1px dashed var(--line); border-radius: 8px; text-align: center; }
+
+    .feature-list { list-style: none; padding: 0; margin: 0; }
+    .feature-item {
+      display: flex; gap: 16px; padding: 16px; background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line); border-radius: 16px; margin-bottom: 12px;
+    }
+    .feature-item i { color: var(--accent2); flex-shrink: 0; margin-top: 4px; }
+    .feature-item b { display: block; font-size: 15px; margin-bottom: 4px; }
+    .feature-item span { font-size: 13.5px; color: var(--muted); line-height: 1.4; }
+
+    details { background: rgba(18,26,39,0.5); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 12px; }
+    summary { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details p { padding: 0 24px 20px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px; margin-top: 0; }
+
+    .sticky-cta {
+      position: fixed; right: 24px; bottom: 24px; z-index: 1100;
+      display: flex; gap: 12px; opacity: 0; transform: translateY(30px);
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .sticky-cta.show { opacity: 1; transform: translateY(0); }
+
+    /* MODAL — FIX MOBILE (важные правки) */
+    .modal {
+      position: fixed; inset: 0;
+      background: rgba(7,10,16,0.9);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+    .modal.show { display: flex; }
+
+    .modal-card {
+      width: min(650px, 100%);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+
+      /* ДОБАВЛЕНО: чтобы на мобилке не “ломалось” */
+      max-height: calc(100vh - 40px);
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-head { padding: 24px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .modal-body { padding: 32px; }
+
+    .form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field label { font-size: 13px; font-weight: 700; color: var(--muted); }
+
+    input, textarea, select {
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: white;
+      outline: none;
+      font-size: 15px;
+
+      /* ДОБАВЛЕНО: чтобы ширина полей не прыгала */
+      width: 100%;
+    }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); background: rgba(255,255,255,0.06); }
+    .full { grid-column: 1 / -1; }
+
+    @media (max-width: 1024px) { .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; } }
+
+    @media (max-width: 768px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .row { grid-template-columns: 1fr; gap: 10px; }
+      .row .ex { text-align: left; width: fit-content; }
+      nav { display: none; }
+      .section-title { font-size: 28px; }
+      h1 { font-size: 34px; }
+      .hero-frame{ inset:14px; }
+      .hero-corner{ width:34px;height:34px; }
+
+      /* ДОБАВЛЕНО: ключевой фикс модалки на мобилке */
+      .form { grid-template-columns: 1fr; }
+      .modal-body { padding: 18px; }
+      .modal-head { padding: 16px; }
+      .modal { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="#top">
+          <div class="logo"><i data-lucide="constructor"></i></div>
+          <div style="margin-left: 12px;">
+            <strong style="display: block; font-size: 18px; letter-spacing: -0.5px;">NSR Formwork</strong>
+            <span style="font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Бишкек • Монолитные решения</span>
+          </div>
+        </a>
+        <nav>
+          <a href="#for">Применение</a>
+          <a href="#params">Расчёт</a>
+          <a href="#kit">Комплектация</a>
+          <a href="#risks">Риски</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="actions">
+          <button class="btn primary" data-open-modal="quote">
+            <i data-lucide="calculator" style="width:18px"></i> Расчёт за 15 мин
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero-bg" id="top" style="padding: 100px 0 60px;">
+    <div class="hero-frame" aria-hidden="true"></div>
+    <div class="hero-corner tl" aria-hidden="true"></div>
+    <div class="hero-corner tr" aria-hidden="true"></div>
+    <div class="hero-corner bl" aria-hidden="true"></div>
+    <div class="hero-corner br" aria-hidden="true"></div>
+
+    <div class="container">
+      <div style="max-width: 850px;">
+        <div style="display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;">
+          <span style="background: rgba(77,163,255,0.1); color: var(--accent); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 800; border: 1px solid rgba(77,163,255,0.2);">ИНЖЕНЕРНЫЙ ПОДХОД</span>
+          <span style="background: rgba(105,240,174,0.1); color: var(--accent2); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 800; border: 1px solid rgba(105,240,174,0.2);">БЕЗ НЕДОСТАЧ</span>
+        </div>
+        <h1>Профессиональный расчёт опалубки под вашу геометрию — быстро и прозрачно</h1>
+        <p style="font-size: 20px; color: var(--muted); margin-bottom: 40px; line-height: 1.5;">
+          Мы не просто поставляем «железо». Мы готовим <b>полную спецификацию</b> элементов, чтобы ваш монолит не встал из-за нехватки одного замка или винта.
+        </p>
+
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px;">
+          <button class="btn primary" data-open-modal="quote">Получить КП со спецификацией</button>
+          <a class="btn" href="#params"><i data-lucide="list-checks" style="width:18px"></i> Что нужно для расчёта?</a>
+        </div>
+
+        <div class="grid-3">
+          <div class="fact"><i data-lucide="rotate-3d"></i><div><b>Ресурс:</b> <span>500–700 циклов бетонирования</span></div></div>
+          <div class="fact"><i data-lucide="building-2"></i><div><b>Практика:</b> <span>150 000+ м² и 2600 квартир по результатам применения</span></div></div>
+          <div class="fact"><i data-lucide="clock"></i><div><b>Сроки:</b> <span>КП за 15 минут</span></div></div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 14px;">
+          <div class="fact"><i data-lucide="truck"></i><div><b>Доставка:</b> <span>По Бишкеку и Чуйской обл.</span></div></div>
+          <div class="fact"><i data-lucide="shield-check"></i><div><b>Качество:</b> <span>Дефектовка и проверка геометрии</span></div></div>
+          <div class="fact"><i data-lucide="graduation-cap"></i><div><b>Сервис:</b> <span>Сопровождение, обучение и техподдержка на объекте</span></div></div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <section id="for">
+    <div class="container">
+      <h2 class="section-title">Комплектуем объекты любого типа</h2>
+      <p class="section-sub">Три основных направления, по которым мы имеем отточенную инженерную базу.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <i data-lucide="layout-panel-top" style="color: var(--accent); margin-bottom: 20px; width: 40px; height: 40px;"></i>
+          <h3>Стеновая опалубка</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">Для фундаментов, стен и шахт. Рассчитываем шаг стяжек под давление бетона.</p>
+          <ul class="feature-list" style="font-size: 13px;">
+            <li>• Крупнощитовая и мелкощитовая</li>
+            <li>• Расчёт углов и доборов</li>
+            <li>• Комплектация замками и винтами</li>
+          </ul>
+        </div>
+        <div class="card">
+          <i data-lucide="layers" style="color: var(--accent); margin-bottom: 20px; width: 40px; height: 40px;"></i>
+          <h3>Опалубка перекрытий</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">Стойки, балки и фанера. Подбираем оптимальную сетку расстановки стоек.</p>
+          <ul class="feature-list" style="font-size: 13px;">
+            <li>• Стойки телескопические (до 4.5м)</li>
+            <li>• Балка БДК и ламинированная фанера</li>
+            <li>• Треноги и унивилки в комплекте</li>
+          </ul>
+        </div>
+        <div class="card">
+          <i data-lucide="columns" style="color: var(--accent); margin-bottom: 20px; width: 40px; height: 40px;"></i>
+          <h3>Колонны и узлы</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">Универсальные решения для колонн разного сечения и сложных примыканий.</p>
+          <ul class="feature-list" style="font-size: 13px;">
+            <li>• Регулируемые щиты колонн</li>
+            <li>• Усиленный крепёж для литья</li>
+            <li>• Шеф-монтаж сложных узлов</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="params">
+    <div class="container">
+      <h2 class="section-title">Данные для точного КП</h2>
+      <p class="section-sub">Чем больше информации, тем меньше «запаса» (лишних денег) нам придется закладывать в проект.</p>
+
+      <div class="params-table">
+        <div class="row">
+          <div class="k">Тип конструктива</div>
+          <div class="v">Стены / Перекрытия / Колонны / Узлы</div>
+          <div class="ex">Пример: Стены + Шахта</div>
+        </div>
+        <div class="row">
+          <div class="k">Геометрия</div>
+          <div class="v">Площадь (м²), высота стен, толщина плиты</div>
+          <div class="ex">H=3.2м, Плита 200мм</div>
+        </div>
+        <div class="row">
+          <div class="k">Сроки и логистика</div>
+          <div class="v">Дата начала, город, возможность заезда фуры</div>
+          <div class="ex">Бишкек, заезд есть</div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 40px;">
+        <div class="card">
+          <h4 style="margin: 0 0 16px;">Что можно отправить вместо ТЗ?</h4>
+          <div class="feature-item"><i data-lucide="camera"></i> <div><b>Фото проекта или сметы</b><span>Даже черновик от руки поможет нам понять объем.</span></div></div>
+          <div class="feature-item"><i data-lucide="file-text"></i> <div><b>Скриншот из WhatsApp</b><span>Перешлите требования технадзора или прораба.</span></div></div>
+        </div>
+        <div class="card" style="border-color: rgba(105,240,174,0.3);">
+          <h4 style="margin: 0 0 16px;">Результат расчёта:</h4>
+          <div class="feature-item"><i data-lucide="check-square"></i> <div><b>Полная спецификация</b><span>Перечень каждого болта и щита.</span></div></div>
+          <div class="feature-item"><i data-lucide="trending-down"></i> <div><b>Оптимизация сметы</b><span>Исключаем лишние элементы, экономя ваш бюджет.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calc">
+    <div class="container">
+      <h2 class="section-title">Инженерная логика процесса</h2>
+      <div class="grid-4">
+        <div class="card" style="padding: 24px;">
+          <div style="font-weight: 900; color: var(--accent); margin-bottom: 12px;">ШАГ 01</div>
+          <b>Сбор параметров</b>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">Фиксируем высоты, толщины и нагрузки. Уточняем требования к поверхности бетона.</p>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <div style="font-weight: 900; color: var(--accent); margin-bottom: 12px;">ШАГ 02</div>
+          <b>Подбор системы</b>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">Подбираем решение под ваш объект, комплектуем под кратность размеров и технологию монтажа.</p>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <div style="font-weight: 900; color: var(--accent); margin-bottom: 12px;">ШАГ 03</div>
+          <b>Раскладка и ТЗ</b>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">Готовим схему расстановки элементов для монтажников, чтобы ускорить сборку.</p>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <div style="font-weight: 900; color: var(--accent); margin-bottom: 12px;">ШАГ 04</div>
+          <b>Отгрузка</b>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">Комплектуем заказ на складе, проверяем резьбу и геометрию перед выездом.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kit">
+    <div class="container">
+      <h2 class="section-title">Детальная комплектация</h2>
+      <p class="section-sub">Мы гарантируем наличие всех расходных и доборных элементов.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="package"></i> Стеновая</h3>
+          <ul class="feature-list" style="margin-top: 20px;">
+            <li class="feature-item"><span><b>Щиты:</b> Линейные, универсальные, угловые (внутренние/наружные).</span></li>
+            <li class="feature-item"><span><b>Крепеж:</b> Замки клиновые/реечные, винты стяжные, гайки литые.</span></li>
+            <li class="feature-item"><span><b>Опоры:</b> Подкосы одноуровневые и двухуровневые для юстировки.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="box"></i> Перекрытия</h3>
+          <ul class="feature-list" style="margin-top: 20px;">
+            <li class="feature-item"><span><b>Опоры:</b> Стойки телескопические, треноги усиленные, унивилки.</span></li>
+            <li class="feature-item"><span><b>Каркас:</b> Балка двутавровая БДК (дерево/пластик), раскладка.</span></li>
+            <li class="feature-item"><span><b>Настил:</b> Фанера ламинированная 18/21 мм, нарезка под размер.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="wrench"></i> Сервис и сопровождение</h3>
+          <ul class="feature-list" style="margin-top: 20px;">
+            <li class="feature-item"><span><b>Контроль сборки:</b> проверяем правильность монтажа системы.</span></li>
+            <li class="feature-item"><span><b>Поддержка первой заливки:</b> помогаем пройти старт без ошибок.</span></li>
+            <li class="feature-item"><span><b>Обучение подрядчика:</b> инструктируем бригаду по технологии.</span></li>
+            <li class="feature-item"><span><b>Техпомощь на объекте:</b> индивидуальная поддержка по узлам и решениям.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="risks">
+    <div class="container">
+      <h2 class="section-title">Риски, которые мы снимаем</h2>
+      <p class="section-sub">Строительство — это дорого. Ошибки в опалубке — это вдвойне дорого.</p>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid var(--danger);">
+          <h4 style="margin: 0 0 12px; display: flex; align-items: center; gap: 8px;"><i data-lucide="shield-alert" style="color: var(--danger)"></i> Недокомплект</h4>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Часто забывают про доборы или мелкий крепеж, из-за чего кран стоит, а бетон едет. <b>Решение:</b> двойная проверка спецификации инженером перед отгрузкой.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--warning);">
+          <h4 style="margin: 0 0 12px; display: flex; align-items: center; gap: 8px;"><i data-lucide="alert-triangle" style="color: var(--warning)"></i> Нарушение геометрии</h4>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Если стойки или щиты «уставшие», стену может выдавить. <b>Решение:</b> жесткая дефектовка оборудования. Мы не сдаем гнутые или дырявые щиты.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent);">
+          <h4 style="margin: 0 0 12px; display: flex; align-items: center; gap: 8px;"><i data-lucide="info" style="color: var(--accent)"></i> Переплата за лишнее</h4>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Посредники часто закладывают запас «на глаз» (+20% к стоимости). <b>Решение:</b> точный расчёт по чертежам КЖ исключает оплату воздуха.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent2);">
+          <h4 style="margin: 0 0 12px; display: flex; align-items: center; gap: 8px;"><i data-lucide="truck" style="color: var(--accent2)"></i> Срыв сроков</h4>
+          <p style="font-size: 14px; color: var(--muted); margin: 0;">Логистика подводит в самый ответственный момент. <b>Решение:</b> свой парк техники и фиксация графика поставок в договоре.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Вопросы и ответы</h2>
+      <div style="max-width: 800px;">
+        <details>
+          <summary>Сколько времени занимает инженерный расчёт? <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p>Первичную оценку и ориентир по стоимости мы даем за 15-20 минут. Полная спецификация со схемой раскладки — от 2 часов до 1 рабочего дня в зависимости от сложности проекта.</p>
+        </details>
+        <details>
+          <summary>Можно ли заказать комплект опалубки только на 1 этаж? <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p>Да, минимальный объем и условия обсуждаются индивидуально. Мы комплектуем как частные дома, так и многоэтажные объекты.</p>
+        </details>
+        <details>
+          <summary>Работаете ли вы по безналичному расчёту? <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p>Безусловно. Мы предоставляем полный пакет закрывающих документов: договор, счета-фактуры, акты сверки. Работаем официально.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 80px 0 40px;">
+    <div class="container">
+      <div class="grid-2">
+        <div>
+          <h2 style="margin: 0 0 24px;">Связаться с инженером</h2>
+          <div style="display: grid; gap: 16px;">
+            <a href="tel:+905466573423" class="feature-item" style="background: rgba(255,255,255,0.03);">
+              <i data-lucide="phone"></i>
+              <div><b>Телефон (TR)</b><span>+90 546 657 34 23</span></div>
+            </a>
+            <a href="tel:+996706909521" class="feature-item" style="background: rgba(255,255,255,0.03);">
+              <i data-lucide="phone"></i>
+              <div><b>Телефон (KG)</b><span>+996 706 90 95 21</span></div>
+            </a>
+            <a href="https://wa.me/996706909521" class="feature-item" style="background: rgba(37, 211, 102, 0.05); border-color: rgba(37, 211, 102, 0.2);">
+              <i data-lucide="message-circle" style="color: #25d366;"></i> <div><b>WhatsApp</b><span>Написать инженеру</span></div>
+            </a>
+            <div class="feature-item"><i data-lucide="mail"></i> <div><b>Email</b><span>sale@nsr.kg • ceo@nsr.kg</span></div></div>
+            <a href="https://nsr-construction.kg" class="feature-item" style="background: rgba(255,255,255,0.03);">
+              <i data-lucide="globe"></i> <div><b>Сайт</b><span>nsr-construction.kg</span></div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin: 0 0 16px;">Офис и склад</h3>
+          <p style="color: var(--muted); font-size: 14px;">Кыргызстан, г. Бишкек, ул. Садырбаева, 261.<br>Работаем: Пн-Сб, 09:00 — 18:00</p>
+          <div style="margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
+            <p style="font-size: 12px; color: var(--muted); line-height: 1.4;">© <span id="year"></span> NSR Formwork. Инженерные решения для монолита. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <button class="btn primary" data-open-modal="quote"><i data-lucide="calculator" style="width:18px"></i> Расчёт</button>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <b id="modalTitle">Заявка на расчёт</b>
+        <button class="x" onclick="closeModal()" style="background:none; border:none; color:white; cursor:pointer;">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="leadForm" class="form">
+          <div class="field">
+            <label>Ваше имя</label>
+            <input id="name" type="text" placeholder="Айбек" required>
+          </div>
+          <div class="field">
+            <label>Телефон</label>
+            <input id="phone" type="tel" placeholder="+996 (___) ___-___" required>
+          </div>
+          <div class="field full">
+            <label>Описание задачи (площадь, высота, город)</label>
+            <textarea id="message" placeholder="Например: Перекрытие 150 м2, высота 3 метра. Объект в Бишкеке."></textarea>
+          </div>
+          <div class="full">
+            <button type="submit" class="btn primary" style="width: 100%; justify-content: center;">Отправить данные инженеру</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const DOM = {
+      modal: document.getElementById('modal'),
+      sticky: document.getElementById('stickyCta'),
+      form: document.getElementById('leadForm'),
+      year: document.getElementById('year')
+    };
+
+    function openModal(mode) {
+      DOM.modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+      if(mode === 'kp') document.getElementById('modalTitle').textContent = "Запрос КП";
+    }
+    function closeModal() {
+      DOM.modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-open-modal]').forEach(b => {
+      b.onclick = () => openModal(b.dataset.openModal);
+    });
+
+    window.onscroll = () => {
+      if (window.scrollY > 600) DOM.sticky.classList.add('show');
+      else DOM.sticky.classList.remove('show');
+    };
+
+    DOM.year.textContent = new Date().getFullYear();
+
+    DOM.form.onsubmit = (e) => {
+      e.preventDefault();
+      alert("Спасибо! Инженер уже изучает вашу заявку. Мы свяжемся с вами в течение 15 минут.");
+      closeModal();
+      DOM.form.reset();
+    };
+
+    DOM.modal.onclick = (e) => { if(e.target === DOM.modal) closeModal(); };
+  </script>
+</body>
+</html>
