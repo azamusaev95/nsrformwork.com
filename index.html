@@ -129,6 +129,15 @@
       border-top: 1px solid var(--line);
     }
 
+    /* ✅ СТАТЫ: анимируемые цифры */
+    .stat-number{
+      font-size: 34px;
+      font-weight: 1000;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      display: inline-block;
+    }
+
     /* #params — градиент */
     #params{
       background:
@@ -328,7 +337,7 @@
 
     .feature-list { list-style: none; padding: 0; margin: 0; }
     .feature-item {
-      display: flex; gap: 16px; 
+      display: flex; gap: 16px;
       margin-bottom: 12px;
     }
     .feature-item i {
@@ -557,7 +566,7 @@
       <div class="grid-3">
         <div class="card" style="padding: 26px;">
           <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;">ГОД ОСНОВАНИЯ</div>
-          <div style="font-size: 34px; font-weight: 1000; letter-spacing: -0.5px;">2024</div>
+          <div class="stat-number" data-type="int" data-target="2024">0</div>
           <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;">
             Цель — высококачественные современные опалубочные системы для ускорения и повышения качества строительства.
           </p>
@@ -565,7 +574,7 @@
 
         <div class="card" style="padding: 26px;">
           <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;">РЕЗУЛЬТАТЫ ПРИМЕНЕНИЯ</div>
-          <div style="font-size: 34px; font-weight: 1000; letter-spacing: -0.5px;">150 000+ м²</div>
+          <div class="stat-number" data-type="m2" data-target="150000">0</div>
           <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;">
             Жилой площади по результатам внедрения технологии на объектах клиентов.
           </p>
@@ -573,7 +582,7 @@
 
         <div class="card" style="padding: 26px;">
           <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;">ПОСТРОЕНО</div>
-          <div style="font-size: 34px; font-weight: 1000; letter-spacing: -0.5px;">2600 квартир</div>
+          <div class="stat-number" data-type="int" data-target="2600">0</div>
           <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;">
             Технология подходит для многоэтажного монолита и задач с повышенными требованиями к прочности.
           </p>
@@ -657,39 +666,38 @@
     </div>
   </section>
 
-<section id="video">
-  <div class="container">
-    <h2 class="section-title">Видео</h2>
-    <p class="section-sub">Посмотреть видео на YouTube.</p>
+  <section id="video">
+    <div class="container">
+      <h2 class="section-title">Видео</h2>
+      <p class="section-sub">Посмотреть видео на YouTube.</p>
 
-    <div class="card">
-      <h3 style="display:flex; align-items:center; gap:10px; margin-top:0;">
-        <i data-lucide="play-circle"></i> Видео NSR Construction
-      </h3>
+      <div class="card">
+        <h3 style="display:flex; align-items:center; gap:10px; margin-top:0;">
+          <i data-lucide="play-circle"></i> Видео NSR Construction
+        </h3>
 
-      <div class="video-wrap" style="margin-top: 18px;">
-        <iframe
-          loading="lazy"
-          title="NSR Construction — YouTube"
-          referrerpolicy="strict-origin-when-cross-origin"
-          src="https://www.youtube-nocookie.com/embed/rtJ2KyyjQxc?rel=0&modestbranding=1&playsinline=1"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
+        <div class="video-wrap" style="margin-top: 18px;">
+          <iframe
+            loading="lazy"
+            title="NSR Construction — YouTube"
+            referrerpolicy="strict-origin-when-cross-origin"
+            src="https://www.youtube-nocookie.com/embed/rtJ2KyyjQxc?rel=0&modestbranding=1&playsinline=1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
 
-      <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
-        <a class="btn" href="https://www.youtube.com/watch?v=rtJ2KyyjQxc" target="_blank" rel="noopener">
-          <i data-lucide="external-link" style="width:18px"></i> Открыть видео на YouTube
-        </a>
-        <a class="btn" href="https://youtube.com/@nsrconstructionn?si=6F6xguWglU6hwVMo" target="_blank" rel="noopener">
-          <i data-lucide="youtube" style="width:18px"></i> Перейти на канал
-        </a>
+        <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn" href="https://www.youtube.com/watch?v=rtJ2KyyjQxc" target="_blank" rel="noopener">
+            <i data-lucide="external-link" style="width:18px"></i> Открыть видео на YouTube
+          </a>
+          <a class="btn" href="https://youtube.com/@nsrconstructionn?si=6F6xguWglU6hwVMo" target="_blank" rel="noopener">
+            <i data-lucide="youtube" style="width:18px"></i> Перейти на канал
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <section id="faq">
     <div class="container">
@@ -851,6 +859,68 @@
     };
 
     DOM.modal.onclick = (e) => { if(e.target === DOM.modal) closeModal(); };
+
+    // ✅ COUNT UP ANIMATION (About stats)
+    (function () {
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const formatNumber = (value, type) => {
+        if (type === 'm2') {
+          const v = Math.round(value);
+          return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '+ м²';
+        }
+        return Math.round(value).toString();
+      };
+
+      const animateCount = (el, target, type, duration = 1200) => {
+        const start = 0;
+        const startTime = performance.now();
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        const tick = (now) => {
+          const progress = Math.min(1, (now - startTime) / duration);
+          const eased = easeOutCubic(progress);
+          const current = start + (target - start) * eased;
+
+          el.textContent = formatNumber(current, type);
+
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      };
+
+      const numbers = document.querySelectorAll('#about .stat-number');
+      if (!numbers.length) return;
+
+      if (prefersReduced) {
+        numbers.forEach(el => {
+          const target = Number(el.dataset.target || '0');
+          const type = el.dataset.type || 'int';
+          el.textContent = formatNumber(target, type);
+        });
+        return;
+      }
+
+      const runOnce = new Set();
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target;
+          if (runOnce.has(el)) return;
+          runOnce.add(el);
+
+          const target = Number(el.dataset.target || '0');
+          const type = el.dataset.type || 'int';
+
+          animateCount(el, target, type);
+        });
+      }, { threshold: 0.35 });
+
+      numbers.forEach(el => obs.observe(el));
+    })();
   </script>
 </body>
 </html>
