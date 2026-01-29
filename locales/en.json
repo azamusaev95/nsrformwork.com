@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "NSR Construction — Tunnel Formwork (Production & Supply across CIS)",
+    "description": "Production and supply of tunnel formwork across the CIS. Support, training, service. NSR Construction."
+  },
+  "brand": { "tagline": "Tunnel formwork • CIS" },
+  "nav": { "solutions": "Solutions", "about": "About", "params": "For quote", "system": "System", "video": "Video", "faq": "FAQ" },
+  "hero": {
+    "badge1": "PRODUCTION",
+    "badge2": "CIS SUPPLY",
+    "badge3": "SUPPORT & TRAINING",
+    "title": "Tunnel formwork production and supply across the CIS",
+    "subtitle": "A modern technology for fast, durable construction: <b>pouring walls and slabs in one cycle</b> and smooth surfaces with less finishing work."
+  },
+  "cta": { "requestQuoteShort": "Request a quote", "requestQuoteLong": "Get a quote & engineer консультация", "whatNeeded": "What’s needed for a quote?" },
+  "facts": {
+    "resourceLabel": "Lifecycle:",
+    "resourceValue": "500–700 pouring cycles",
+    "materialLabel": "Material:",
+    "materialValue": "high-strength steel, wear resistant",
+    "speedLabel": "Speed:",
+    "speedValue": "walls + slabs in 1 cycle"
+  },
+  "solutions": {
+    "title": "Solutions for tunnel technology",
+    "card1": {
+      "title": "Tunnel formwork: walls + slabs in one cycle",
+      "text": "Cuts timelines and improves repeatable quality: a monolithic structure in one pouring cycle.",
+      "li1": "• Simultaneous pouring of walls and slabs",
+      "li2": "• No beams and columns needed",
+      "li3": "• Savings on materials and labor"
+    },
+    "card2": {
+      "title": "Seismic resistance: a monolithic “capsule”",
+      "text": "Pouring integral structures forms a reinforced-concrete “capsule” — earthquake resistance and durability.",
+      "li1": "• Higher building strength",
+      "li2": "• Less human factor",
+      "li3": "• Stable geometry cycle after cycle"
+    },
+    "card3": {
+      "title": "500–700 cycles + high-strength steel",
+      "text": "Long service life and wear resistance — designed for intensive use across multiple projects.",
+      "li1": "• High-strength steel",
+      "li2": "• Reliability and wear resistance",
+      "li3": "• Quality control and safety"
+    }
+  },
+  "about": {
+    "title": "Company / numbers",
+    "subtitle": "NSR Construction was founded in 2024 and focuses on producing and supplying modern locally manufactured formwork systems for construction needs.",
+    "stats1": { "label": "FOUNDED", "text": "Our goal is modern, high-quality formwork systems to speed up projects and improve build quality." },
+    "stats2": { "label": "IMPLEMENTATION RESULTS", "text": "Residential area built using the technology at customers’ sites." },
+    "stats3": { "label": "BUILT", "text": "Suitable for multi-storey monolithic construction and high-strength requirements." }
+  },
+  "params": {
+    "title": "Inputs for an accurate quote",
+    "subtitle": "To provide price and delivery schedule, we need project parameters and logistics. The more accurate the input — the more accurate the quote.",
+    "row1": { "k": "Project type", "v": "Residential complex / Multi-storey monolith / Serial construction", "ex": "Example: 12 floors" },
+    "row2": { "k": "Geometry", "v": "Typical floor plan, floor height, wall/slab thickness", "ex": "H=3.0 m" },
+    "row3": { "k": "Logistics", "v": "City/country, start timeline, unloading conditions, truck access", "ex": "CIS, access available" },
+    "card1": {
+      "title": "What can you send instead of a full spec?",
+      "item1": { "b": "Structural drawings / typical floor plan", "s": "PDF/screenshot is enough for an initial estimate." },
+      "item2": { "b": "Photos of drawings / layout", "s": "Even phone photos work." }
+    },
+    "card2": {
+      "title": "Result:",
+      "item1": { "b": "Quote + specification", "s": "System composition and quantities for your project." },
+      "item2": { "b": "Delivery plan", "s": "Shipping schedule and start support." }
+    }
+  },
+  "kit": {
+    "title": "Tunnel system + service package",
+    "subtitle": "This section focuses on the tunnel system and project support.",
+    "card1": {
+      "title": "Tunnel system",
+      "li1": "<b>Panels:</b> sets for a typical floor (walls + slabs) with modular sizing.",
+      "li2": "<b>Connections:</b> locks/fasteners for repeatable assembly each cycle.",
+      "li3": "<b>Supports & safety:</b> stability elements and geometry control."
+    },
+    "card2": {
+      "title": "Surface quality",
+      "li1": "<b>Smooth walls:</b> no plaster needed (putty is usually enough).",
+      "li2": "<b>Consistency:</b> same quality across cycles and floors.",
+      "li3": "<b>Construction pace:</b> faster floor handover and less downtime."
+    },
+    "card3": {
+      "title": "Support / training",
+      "li1": "<b>Assembly control:</b> we verify correct installation.",
+      "li2": "<b>First pour support:</b> we help you start without mistakes.",
+      "li3": "<b>Contractor training:</b> staff briefing and procedures.",
+      "li4": "<b>On-site assistance:</b> tailored technical help on details."
+    }
+  },
+  "video": {
+    "title": "Video",
+    "subtitle": "Watch on YouTube.",
+    "cardTitle": "NSR Construction video",
+    "openVideo": "Open video on YouTube",
+    "openChannel": "Go to channel"
+  },
+  "faq": {
+    "title": "FAQ: production & supply",
+    "q1": "Where do you deliver?",
+    "a1": "We deliver across CIS countries. Support is provided regardless of the country or project region.",
+    "q2": "What’s included with the system?",
+    "a2": "Support, training and service: assembly control, first pour support, contractor training and individual technical assistance on site.",
+    "q3": "How smooth are the walls after tunnel technology?",
+    "a3": "Walls are smooth and usually don’t require plaster — putty is enough. This reduces costs and speeds up finishing.",
+    "q4": "How many cycles does the system last?",
+    "a4": "Designed for 500–700 pouring cycles and made from high-strength steel — durable and wear-resistant."
+  },
+  "footer": {
+    "contactTitle": "Contact an engineer",
+    "phoneTRLabel": "Phone (TR)",
+    "phoneKGLabel": "Phone (KG)",
+    "whatsappText": "Message an engineer",
+    "siteLabel": "Website",
+    "addressLabel": "Address",
+    "addressValue": "Sadyrbaeva st., 261",
+    "blockTitle": "Supply & support",
+    "blockText": "Production and supply of tunnel formwork across the CIS.<br>Support, training and on-site service.",
+    "rights": "All rights reserved."
+  },
+  "modal": { "title": "Request a quote" },
+  "form": {
+    "nameLabel": "Your name",
+    "phoneLabel": "Phone",
+    "msgLabel": "Project description (city/country, floors, typical floor)",
+    "namePh": "Aibek",
+    "phonePh": "+996 (___) ___-___",
+    "msgPh": "RC: 12 floors; floor ~650 m²; h=3.0 m; location: …; start: …",
+    "submit": "Send request to engineer"
+  },
+  "alerts": { "thanks": "Thanks! We received your request. An engineer will contact you soon." },
+  "units": { "m2Plus": "+ m²" }
+}

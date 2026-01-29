@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "title": "NSR Construction — Tunnel qolipi (MDH bo'yicha ishlab chiqarish va yetkazib berish)",
+    "description": "MDH bo'yicha tunnel qolipini ishlab chiqarish va yetkazib berish. Qo'llab-quvvatlash, o'qitish, servis. NSR Construction."
+  },
+  "brand": { "tagline": "Tunnel qolipi • MDH" },
+  "nav": { "solutions": "Yechimlar", "about": "Kompaniya", "params": "Tijoriy taklif", "system": "Tizim", "video": "Video", "faq": "FAQ" },
+  "hero": {
+    "badge1": "ISHLAB CHIQARISH",
+    "badge2": "MDH BO'YICHA YETKAZIB BERISH",
+    "badge3": "YO'RIQLASH VA O'QITISH",
+    "title": "MDH bo'yicha tunnel qolipini ishlab chiqarish va yetkazib berish",
+    "subtitle": "Tez va mustahkam qurilish uchun zamonaviy texnologiya: <b>devor va plitalarni bir siklda quyish</b> hamda ortiqcha ishlarsiz silliq yuzalar."
+  },
+  "cta": { "requestQuoteShort": "Taklif so'rash", "requestQuoteLong": "Taklif va muhandis maslahatini olish", "whatNeeded": "Taklif uchun nima kerak?" },
+  "facts": {
+    "resourceLabel": "Resurs:",
+    "resourceValue": "500–700 quyish sikli",
+    "materialLabel": "Material:",
+    "materialValue": "yuqori mustahkam po'lat, yeyilishga chidamli",
+    "speedLabel": "Tezlik:",
+    "speedValue": "devor+plita 1 siklda"
+  },
+  "solutions": {
+    "title": "Tunnel texnologiyasi uchun yechimlar",
+    "card1": {
+      "title": "Tunnel qolipi: devor+plita 1 siklda",
+      "text": "Muddatni qisqartiradi va sifatni barqaror qiladi: bir quyish siklida monolit konstruktsiya.",
+      "li1": "• Devor va plitalarni bir vaqtda quyish",
+      "li2": "• Rigel va ustunlar talab qilinmaydi",
+      "li3": "• Material va ishchi kuchi tejaladi"
+    },
+    "card2": {
+      "title": "Seysmik barqarorlik: monolit “kapsula”",
+      "text": "Yaxlit konstruktsiyalarni quyish temir-beton “kapsula” hosil qiladi — zilzilaga chidamli va uzoq xizmat qiladi.",
+      "li1": "• Bino mustahkamligi oshadi",
+      "li2": "• Inson omili kamayadi",
+      "li3": "• Geometriya siklma-sikl barqaror"
+    },
+    "card3": {
+      "title": "500–700 sikl + yuqori mustahkam po'lat",
+      "text": "Uzoq xizmat muddati va yeyilishga chidamlilik — bir nechta obyektlarda intensiv ishlatishga mos.",
+      "li1": "• Yuqori mustahkam po'lat",
+      "li2": "• Ishonchlilik va chidamlilik",
+      "li3": "• Sifat nazorati va xavfsizlik"
+    }
+  },
+  "about": {
+    "title": "Kompaniya / raqamlar",
+    "subtitle": "NSR Construction 2024-yilda tashkil topgan va qurilish ehtiyojlari uchun zamonaviy mahalliy ishlab chiqarilgan qolip tizimlarini ishlab chiqarish hamda yetkazib berishga ixtisoslashgan.",
+    "stats1": { "label": "TASHKIL TOPGAN", "text": "Maqsad — qurilishni tezlatish va sifatni oshirish uchun zamonaviy, sifatli qolip tizimlari." },
+    "stats2": { "label": "AMALIY NATIJALAR", "text": "Mijozlar obyektlarida texnologiya qo'llanib qurilgan turar-joy maydoni." },
+    "stats3": { "label": "QURILGAN", "text": "Ko'p qavatli monolit va mustahkamlik talabi yuqori bo'lgan loyihalar uchun mos." }
+  },
+  "params": {
+    "title": "Aniq taklif uchun ma'lumotlar",
+    "subtitle": "Narx va yetkazib berish jadvali uchun obyekt parametrlari va logistika kerak. Ma'lumot qanchalik aniq bo'lsa — taklif shunchalik aniq bo'ladi.",
+    "row1": { "k": "Obyekt turi", "v": "Turar-joy majmuasi / Ko'p qavatli monolit / Seriyali qurilish", "ex": "Masalan: 12 qavat" },
+    "row2": { "k": "Geometriya", "v": "Tipik qavat rejasi, qavat balandligi, devor/plita qalinligi", "ex": "H=3.0 m" },
+    "row3": { "k": "Logistika", "v": "Shahar/mamlakat, start muddati, tushirish shartlari, fura kirishi", "ex": "MDH, kirish bor" },
+    "card1": {
+      "title": "To'liq tex. topshiriq o'rniga nima yuborish mumkin?",
+      "item1": { "b": "KJ / tipik qavat rejasi", "s": "PDF/skrin — dastlabki hisob uchun yetarli." },
+      "item2": { "b": "Chizma/rejaning fotosi", "s": "Telefon fotosi ham bo'ladi." }
+    },
+    "card2": {
+      "title": "Natija:",
+      "item1": { "b": "Taklif + spetsifikatsiya", "s": "Tizim tarkibi va hajmlar." },
+      "item2": { "b": "Yetkazib berish rejasi", "s": "Yuklash jadvali va startdagi qo'llab-quvvatlash." }
+    }
+  },
+  "kit": {
+    "title": "Tunnel tizimi tarkibi + servis",
+    "subtitle": "Bo'lim tunnel tizimi va loyiha hamrohligiga yo'naltirildi.",
+    "card1": {
+      "title": "Tunnel tizimi",
+      "li1": "<b>Panellar:</b> tipik qavat uchun komplekt (devor+plita), modulli o'lchamlar bilan.",
+      "li2": "<b>Ulanishlar:</b> qulflar/mahkamlash — har siklda takror yig'ish uchun.",
+      "li3": "<b>Tayanch va xavfsizlik:</b> barqarorlik elementlari va geometriya nazorati."
+    },
+    "card2": {
+      "title": "Yuza sifati",
+      "li1": "<b>Silliq devor:</b> suvoq talab qilmaydi (odatda shpaklyovka yetarli).",
+      "li2": "<b>Barqarorlik:</b> sikl va qavatlar bo'yicha bir xil sifat.",
+      "li3": "<b>Tezlik:</b> qavatlarni tez topshirish va kamroq to'xtab qolish."
+    },
+    "card3": {
+      "title": "Hamrohlik / o'qitish",
+      "li1": "<b>Yig'ishni nazorat:</b> montaj to'g'riligini tekshiramiz.",
+      "li2": "<b>Birinchi quyishda yordam:</b> xatosiz start qilishga ko'maklashamiz.",
+      "li3": "<b>Pudratchini o'qitish:</b> xodimlar uchun yo'riqnoma va reglamentlar.",
+      "li4": "<b>Obyektda yordam:</b> tugunlar bo'yicha individual tex. yordam."
+    }
+  },
+  "video": { "title": "Video", "subtitle": "YouTube'da ko'rish.", "cardTitle": "NSR Construction videosi", "openVideo": "Videoni YouTube'da ochish", "openChannel": "Kanalga o'tish" },
+  "faq": {
+    "title": "FAQ: ishlab chiqarish va yetkazib berish",
+    "q1": "Qayerlarga yetkazib berasiz?",
+    "a1": "MDH davlatlariga yetkazib beramiz. Qo'llab-quvvatlash hududdan qat'i nazar taqdim etiladi.",
+    "q2": "Tizim bilan nimalar beriladi?",
+    "a2": "Hamrohlik, o'qitish va servis: yig'ishni nazorat, birinchi quyishda yordam, pudratchi xodimlarini o'qitish va obyektida texnik yordam.",
+    "q3": "Tunnel texnologiyasidan keyin devorlar qanchalik silliq bo'ladi?",
+    "a3": "Devorlar silliq — odatda suvoq kerak emas, shpaklyovka yetarli. Bu xarajatni kamaytiradi va pardoz ishlarini tezlashtiradi.",
+    "q4": "Tizim qancha siklga chidaydi?",
+    "a4": "500–700 quyish sikliga mo'ljallangan va yuqori mustahkam po'latdan — uzoq xizmat qiladi va yeyilishga chidamli."
+  },
+  "footer": {
+    "contactTitle": "Muhandis bilan bog'lanish",
+    "phoneTRLabel": "Telefon (TR)",
+    "phoneKGLabel": "Telefon (KG)",
+    "whatsappText": "Muhandisga yozish",
+    "siteLabel": "Sayt",
+    "addressLabel": "Manzil",
+    "addressValue": "Sadyrbaeva ko'ch., 261",
+    "blockTitle": "Yetkazib berish va qo'llab-quvvatlash",
+    "blockText": "MDH bo'yicha tunnel qolipini ishlab chiqarish va yetkazib berish.<br>Hamrohlik, o'qitish va obyekt servis.",
+    "rights": "Barcha huquqlar himoyalangan."
+  },
+  "modal": { "title": "Taklif so'rash" },
+  "form": {
+    "nameLabel": "Ismingiz",
+    "phoneLabel": "Telefon",
+    "msgLabel": "Loyiha tavsifi (shahar/mamlakat, qavatlar, tipik qavat)",
+    "namePh": "Aybek",
+    "phonePh": "+996 (___) ___-___",
+    "msgPh": "TM: 12 qavat; qavat ~650 m²; h=3,0 m; lokatsiya: …; start: …",
+    "submit": "Muhandisga so'rov yuborish"
+  },
+  "alerts": { "thanks": "Rahmat! So'rovingiz qabul qilindi. Muhandis tez orada bog'lanadi." },
+  "units": { "m2Plus": "+ m²" }
+}

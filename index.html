@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Производство и поставка туннельной опалубки по СНГ. Сопровождение, обучение, сервис. NSR Construction." />
-  <title>NSR Construction — Туннельная опалубка (производство и поставка по СНГ)</title>
+  <meta name="description" content="Производство и поставка туннельной опалубки по СНГ. Сопровождение, обучение, сервис. NSR Construction." data-i18n-meta="meta.description" />
+  <title data-i18n-title="meta.title">NSR Construction — Туннельная опалубка (производство и поставка по СНГ)</title>
 
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -242,12 +242,142 @@
       background: rgba(5,4,6,0.88);
       border-bottom: 1px solid var(--line);
     }
-    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; gap: 12px; }
 
     nav { display: flex; gap: 4px; }
     nav a { font-size: 13px; font-weight: 800; padding: 8px 14px; border-radius: 10px; color: var(--muted); }
     nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
 
+    .actions{ display:flex; align-items:center; gap:10px; }
+
+    /* ====== Custom Language Dropdown (Div) ====== */
+    .lang-dd{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .lang-btn{
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      outline: none;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 120px;
+      justify-content: space-between;
+      transition: 0.2s;
+    }
+    .lang-btn:focus,
+    .lang-btn:focus-visible{
+      border-color: rgba(226,70,85,0.90);
+      box-shadow: 0 0 0 4px rgba(226,70,85,0.12);
+    }
+    .lang-btn:hover{
+      background: rgba(255,255,255,0.06);
+    }
+
+    .lang-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+    }
+    .lang-flag{
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 1;
+      filter: drop-shadow(0 10px 18px rgba(226,70,85,0.14));
+    }
+    .lang-code{
+      font-weight: 1000;
+      letter-spacing: .4px;
+    }
+    .lang-chevron{
+      width: 18px;
+      height: 18px;
+      opacity: .9;
+      flex: 0 0 auto;
+    }
+
+    .lang-menu{
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      width: 220px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(10,5,7,0.92);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.72);
+      overflow: hidden;
+      display: none;
+      z-index: 1200;
+    }
+    .lang-dd.open .lang-menu{ display: block; }
+
+    .lang-item{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      cursor: pointer;
+      color: var(--text);
+      background: transparent;
+      border: 0;
+      text-align: left;
+      font-weight: 900;
+      font-size: 13px;
+      transition: 0.2s;
+    }
+    .lang-item:hover{
+      background: rgba(255,255,255,0.06);
+    }
+    .lang-item:focus,
+    .lang-item:focus-visible{
+      outline: none;
+      box-shadow: inset 0 0 0 2px rgba(226,70,85,0.55);
+    }
+    .lang-item .left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 0;
+    }
+    .lang-item .name{
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: .2px;
+    }
+    .lang-item.active{
+      background: rgba(226,70,85,0.12);
+    }
+    .lang-item .check{
+      width: 18px;
+      height: 18px;
+      opacity: .9;
+      color: var(--accent2);
+      display: none;
+    }
+    .lang-item.active .check{
+      display: inline-flex;
+    }
+
+    /* Button */
     .btn {
       appearance: none;
       border: 1px solid rgba(226,70,85,0.45);
@@ -262,6 +392,7 @@
       gap: 10px;
       align-items: center;
       transition: 0.3s;
+      white-space: nowrap;
     }
     .btn:hover {
       transform: translateY(-2px);
@@ -439,6 +570,10 @@
       .hero-frame{ inset:14px; }
       .hero-corner{ width:34px;height:34px; }
 
+      .actions{ width:100%; justify-content:flex-end; flex-wrap:wrap; }
+      .lang-btn{ min-width: 110px; padding: 8px 10px; }
+      .lang-menu{ width: 210px; }
+
       .form { grid-template-columns: 1fr; }
       .modal-body { padding: 18px; }
       .modal-head { padding: 16px; }
@@ -454,20 +589,83 @@
         <a class="brand" href="#top">
           <div style="margin-left: 12px;">
             <strong style="display: block; font-size: 18px; letter-spacing: -0.5px;">NSR Construction</strong>
-            <span style="font-size: 11px; color: var(--muted); font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;">Туннельная опалубка • СНГ</span>
+            <span style="font-size: 11px; color: var(--muted); font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;" data-i18n="brand.tagline">
+              Туннельная опалубка • СНГ
+            </span>
           </div>
         </a>
+
         <nav>
-          <a href="#for">Решения</a>
-          <a href="#about">О компании</a>
-          <a href="#params">Для КП</a>
-          <a href="#kit">Система</a>
-          <a href="#video">Видео</a>
-          <a href="#faq">FAQ</a>
+          <a href="#for" data-i18n="nav.solutions">Решения</a>
+          <a href="#about" data-i18n="nav.about">О компании</a>
+          <a href="#params" data-i18n="nav.params">Для КП</a>
+          <a href="#kit" data-i18n="nav.system">Система</a>
+          <a href="#video" data-i18n="nav.video">Видео</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
         </nav>
+
         <div class="actions">
+          <!-- ✅ Custom Language Dropdown -->
+          <div class="lang-dd" id="langDD">
+            <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span class="lang-left">
+                <span class="lang-flag" id="langFlag" aria-hidden="true">🇷🇺</span>
+                <span class="lang-code" id="langCode">RU</span>
+              </span>
+              <i data-lucide="chevron-down" class="lang-chevron" aria-hidden="true"></i>
+            </button>
+
+            <div class="lang-menu" id="langMenu" role="listbox" aria-label="Language menu">
+              <button class="lang-item" type="button" role="option" data-lang="ru">
+                <span class="left">
+                  <span class="lang-flag" aria-hidden="true">🇷🇺</span>
+                  <span class="lang-code">RU</span>
+                  <span class="name">Русский</span>
+                </span>
+                <i data-lucide="check" class="check" aria-hidden="true"></i>
+              </button>
+
+              <button class="lang-item" type="button" role="option" data-lang="en">
+                <span class="left">
+                  <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+                  <span class="lang-code">EN</span>
+                  <span class="name">English</span>
+                </span>
+                <i data-lucide="check" class="check" aria-hidden="true"></i>
+              </button>
+
+              <button class="lang-item" type="button" role="option" data-lang="ky">
+                <span class="left">
+                  <span class="lang-flag" aria-hidden="true">🇰🇬</span>
+                  <span class="lang-code">KY</span>
+                  <span class="name">Кыргызча</span>
+                </span>
+                <i data-lucide="check" class="check" aria-hidden="true"></i>
+              </button>
+
+              <button class="lang-item" type="button" role="option" data-lang="uz">
+                <span class="left">
+                  <span class="lang-flag" aria-hidden="true">🇺🇿</span>
+                  <span class="lang-code">UZ</span>
+                  <span class="name">O‘zbek</span>
+                </span>
+                <i data-lucide="check" class="check" aria-hidden="true"></i>
+              </button>
+
+              <button class="lang-item" type="button" role="option" data-lang="kk">
+                <span class="left">
+                  <span class="lang-flag" aria-hidden="true">🇰🇿</span>
+                  <span class="lang-code">KZ</span>
+                  <span class="name">Қазақша</span>
+                </span>
+                <i data-lucide="check" class="check" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
           <button class="btn primary" data-open-modal="quote">
-            <i data-lucide="calculator" style="width:18px"></i> Запрос КП
+            <i data-lucide="calculator" style="width:18px"></i>
+            <span data-i18n="cta.requestQuoteShort">Запрос КП</span>
           </button>
         </div>
       </div>
@@ -484,26 +682,35 @@
     <div class="container">
       <div style="max-width: 900px;">
         <div style="display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap;">
-          <span style="background: rgba(226,70,85,0.14); color: var(--accent2); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 1000; border: 1px solid rgba(226,70,85,0.30);">ПРОИЗВОДСТВО</span>
-          <span style="background: rgba(255,204,102,0.12); color: var(--accent2); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 1000; border: 1px solid rgba(255,204,102,0.26);">ПОСТАВКА ПО СНГ</span>
-          <span style="background: rgba(255,255,255,0.04); color: var(--muted); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 900; border: 1px solid rgba(255,255,255,0.06);">СОПРОВОЖДЕНИЕ И ОБУЧЕНИЕ</span>
+          <span style="background: rgba(226,70,85,0.14); color: var(--accent2); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 1000; border: 1px solid rgba(226,70,85,0.30);" data-i18n="hero.badge1">ПРОИЗВОДСТВО</span>
+          <span style="background: rgba(255,204,102,0.12); color: var(--accent2); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 1000; border: 1px solid rgba(255,204,102,0.26);" data-i18n="hero.badge2">ПОСТАВКА ПО СНГ</span>
+          <span style="background: rgba(255,255,255,0.04); color: var(--muted); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 900; border: 1px solid rgba(255,255,255,0.06);" data-i18n="hero.badge3">СОПРОВОЖДЕНИЕ И ОБУЧЕНИЕ</span>
         </div>
 
-        <h1>Производство и поставка туннельной опалубки по СНГ</h1>
+        <h1 data-i18n="hero.title">Производство и поставка туннельной опалубки по СНГ</h1>
 
-        <p style="font-size: 20px; color: var(--muted); margin-bottom: 40px; line-height: 1.5;">
+        <p style="font-size: 20px; color: var(--muted); margin-bottom: 40px; line-height: 1.5;" data-i18n-html="hero.subtitle">
           Современная технология для быстрого и прочного строительства: <b>одновременное бетонирование стен и перекрытий</b> и ровные поверхности без лишних работ.
         </p>
 
         <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 60px;">
-          <button class="btn primary" data-open-modal="quote">Получить КП и консультацию инженера</button>
-          <a class="btn" href="#params"><i data-lucide="list-checks" style="width:18px"></i> Что нужно для КП?</a>
+          <button class="btn primary" data-open-modal="quote" data-i18n="cta.requestQuoteLong">Получить КП и консультацию инженера</button>
+          <a class="btn" href="#params"><i data-lucide="list-checks" style="width:18px"></i> <span data-i18n="cta.whatNeeded">Что нужно для КП?</span></a>
         </div>
 
         <div class="grid-3">
-          <div class="fact"><i data-lucide="repeat-2"></i><div><b>Ресурс:</b> <span>500–700 циклов бетонирования</span></div></div>
-          <div class="fact"><i data-lucide="shield-check"></i><div><b>Материал:</b> <span>высокопрочная сталь, износостойкость</span></div></div>
-          <div class="fact"><i data-lucide="zap"></i><div><b>Скорость:</b> <span>стены+перекрытия за 1 цикл</span></div></div>
+          <div class="fact">
+            <i data-lucide="repeat-2"></i>
+            <div><b data-i18n="facts.resourceLabel">Ресурс:</b> <span data-i18n="facts.resourceValue">500–700 циклов бетонирования</span></div>
+          </div>
+          <div class="fact">
+            <i data-lucide="shield-check"></i>
+            <div><b data-i18n="facts.materialLabel">Материал:</b> <span data-i18n="facts.materialValue">высокопрочная сталь, износостойкость</span></div>
+          </div>
+          <div class="fact">
+            <i data-lucide="zap"></i>
+            <div><b data-i18n="facts.speedLabel">Скорость:</b> <span data-i18n="facts.speedValue">стены+перекрытия за 1 цикл</span></div>
+          </div>
         </div>
 
       </div>
@@ -512,44 +719,44 @@
 
   <section id="for">
     <div class="container">
-      <h2 class="section-title">Решения под туннельную технологию</h2>
+      <h2 class="section-title" data-i18n="solutions.title">Решения под туннельную технологию</h2>
       <div class="grid-3">
         <div class="card">
           <i data-lucide="grid-3x3" style="color: var(--accent2); margin-bottom: 20px; width: 40px; height: 40px;"></i>
-          <h3>Туннельная опалубка: стены+перекрытия за 1 цикл</h3>
-          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">
+          <h3 data-i18n="solutions.card1.title">Туннельная опалубка: стены+перекрытия за 1 цикл</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;" data-i18n="solutions.card1.text">
             Технология сокращает сроки и повышает повторяемость качества: цельная конструкция за один цикл бетонирования.
           </p>
           <ul class="feature-list" style="font-size: 13px;">
-            <li>• Одновременное бетонирование стен и перекрытий</li>
-            <li>• Нет необходимости в ригелях и колоннах</li>
-            <li>• Экономия материалов и рабочей силы</li>
+            <li data-i18n="solutions.card1.li1">• Одновременное бетонирование стен и перекрытий</li>
+            <li data-i18n="solutions.card1.li2">• Нет необходимости в ригелях и колоннах</li>
+            <li data-i18n="solutions.card1.li3">• Экономия материалов и рабочей силы</li>
           </ul>
         </div>
 
         <div class="card">
           <i data-lucide="activity" style="color: var(--accent2); margin-bottom: 20px; width: 40px; height: 40px;"></i>
-          <h3>Сейсмоустойчивость: монолитная “капсула”</h3>
-          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">
+          <h3 data-i18n="solutions.card2.title">Сейсмоустойчивость: монолитная “капсула”</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;" data-i18n="solutions.card2.text">
             Бетонирование цельных конструкций формирует “железобетонную капсулу” — устойчивость к землетрясениям и долговечность.
           </p>
           <ul class="feature-list" style="font-size: 13px;">
-            <li>• Повышенная прочность зданий</li>
-            <li>• Минимизация человеческого фактора</li>
-            <li>• Стабильная геометрия по циклам</li>
+            <li data-i18n="solutions.card2.li1">• Повышенная прочность зданий</li>
+            <li data-i18n="solutions.card2.li2">• Минимизация человеческого фактора</li>
+            <li data-i18n="solutions.card2.li3">• Стабильная геометрия по циклам</li>
           </ul>
         </div>
 
         <div class="card">
           <i data-lucide="layers" style="color: var(--accent2); margin-bottom: 20px; width: 40px; height: 40px;"></i>
-          <h3>Ресурс 500–700 циклов + высокопрочная сталь</h3>
-          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;">
+          <h3 data-i18n="solutions.card3.title">Ресурс 500–700 циклов + высокопрочная сталь</h3>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 20px;" data-i18n="solutions.card3.text">
             Долгий срок службы и устойчивость к износу — система рассчитана на интенсивную эксплуатацию на серии объектов.
           </p>
           <ul class="feature-list" style="font-size: 13px;">
-            <li>• Высокопрочная сталь</li>
-            <li>• Надёжность и износостойкость</li>
-            <li>• Контроль качества и безопасность</li>
+            <li data-i18n="solutions.card3.li1">• Высокопрочная сталь</li>
+            <li data-i18n="solutions.card3.li2">• Надёжность и износостойкость</li>
+            <li data-i18n="solutions.card3.li3">• Контроль качества и безопасность</li>
           </ul>
         </div>
       </div>
@@ -558,32 +765,32 @@
 
   <section id="about">
     <div class="container">
-      <h2 class="section-title">О компании / цифры</h2>
-      <p class="section-sub">
+      <h2 class="section-title" data-i18n="about.title">О компании / цифры</h2>
+      <p class="section-sub" data-i18n="about.subtitle">
         NSR Construction основана в 2024 году и фокусируется на производстве и поставке современных опалубочных систем местного производства для нужд строительства.
       </p>
 
       <div class="grid-3">
         <div class="card" style="padding: 26px;">
-          <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;">ГОД ОСНОВАНИЯ</div>
+          <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;" data-i18n="about.stats1.label">ГОД ОСНОВАНИЯ</div>
           <div class="stat-number" data-type="int" data-target="2024">0</div>
-          <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;">
+          <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;" data-i18n="about.stats1.text">
             Цель — высококачественные современные опалубочные системы для ускорения и повышения качества строительства.
           </p>
         </div>
 
         <div class="card" style="padding: 26px;">
-          <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;">РЕЗУЛЬТАТЫ ПРИМЕНЕНИЯ</div>
-          <div class="stat-number" data-type="m2" data-target="150000">0</div>
-          <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;">
+          <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;" data-i18n="about.stats2.label">РЕЗУЛЬТАТЫ ПРИМЕНЕНИЯ</div>
+          <div class="stat-number" data-type="m2" data-target="650000">0</div>
+          <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;" data-i18n="about.stats2.text">
             Жилой площади по результатам внедрения технологии на объектах клиентов.
           </p>
         </div>
 
         <div class="card" style="padding: 26px;">
-          <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;">ПОСТРОЕНО</div>
-          <div class="stat-number" data-type="int" data-target="2600">0</div>
-          <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;">
+          <div style="font-weight: 1000; color: var(--accent2); margin-bottom: 10px;" data-i18n="about.stats3.label">ПОСТРОЕНО</div>
+          <div class="stat-number" data-type="int" data-target="17500">0</div>
+          <p style="color: var(--muted); font-size: 13.5px; margin: 10px 0 0;" data-i18n="about.stats3.text">
             Технология подходит для многоэтажного монолита и задач с повышенными требованиями к прочности.
           </p>
         </div>
@@ -593,37 +800,37 @@
 
   <section id="params">
     <div class="container">
-      <h2 class="section-title">Данные для точного КП</h2>
-      <p class="section-sub">Чтобы дать цену и график поставки, нужны параметры объекта и логистика. Чем точнее входные данные — тем точнее КП.</p>
+      <h2 class="section-title" data-i18n="params.title">Данные для точного КП</h2>
+      <p class="section-sub" data-i18n="params.subtitle">Чтобы дать цену и график поставки, нужны параметры объекта и логистика. Чем точнее входные данные — тем точнее КП.</p>
 
       <div class="params-table">
         <div class="row">
-          <div class="k">Тип объекта</div>
-          <div class="v">ЖК / Многоэтажный монолит / Серийное строительство</div>
-          <div class="ex">Пример: 12 этажей</div>
+          <div class="k" data-i18n="params.row1.k">Тип объекта</div>
+          <div class="v" data-i18n="params.row1.v">ЖК / Многоэтажный монолит / Серийное строительство</div>
+          <div class="ex" data-i18n="params.row1.ex">Пример: 12 этажей</div>
         </div>
         <div class="row">
-          <div class="k">Геометрия</div>
-          <div class="v">Планировка типового этажа, высота этажа, толщина стен/перекрытия</div>
-          <div class="ex">H=3.0м</div>
+          <div class="k" data-i18n="params.row2.k">Геометрия</div>
+          <div class="v" data-i18n="params.row2.v">Планировка типового этажа, высота этажа, толщина стен/перекрытия</div>
+          <div class="ex" data-i18n="params.row2.ex">H=3.0м</div>
         </div>
         <div class="row">
-          <div class="k">Логистика</div>
-          <div class="v">Город/страна, сроки старта, условия разгрузки, доступ фуры</div>
-          <div class="ex">СНГ, заезд есть</div>
+          <div class="k" data-i18n="params.row3.k">Логистика</div>
+          <div class="v" data-i18n="params.row3.v">Город/страна, сроки старта, условия разгрузки, доступ фуры</div>
+          <div class="ex" data-i18n="params.row3.ex">СНГ, заезд есть</div>
         </div>
       </div>
 
       <div class="grid-2" style="margin-top: 40px;">
         <div class="card">
-          <h4 style="margin: 0 0 16px;">Что можно отправить вместо ТЗ?</h4>
-          <div class="feature-item"><i data-lucide="file-text"></i> <div><b>КЖ/план типового этажа</b><span>PDF/скрин — достаточно для первичного расчёта.</span></div></div>
-          <div class="feature-item"><i data-lucide="camera"></i> <div><b>Фото чертежей/планировки</b><span>Даже фото с телефона подойдёт.</span></div></div>
+          <h4 style="margin: 0 0 16px;" data-i18n="params.card1.title">Что можно отправить вместо ТЗ?</h4>
+          <div class="feature-item"><i data-lucide="file-text"></i> <div><b data-i18n="params.card1.item1.b">КЖ/план типового этажа</b><span data-i18n="params.card1.item1.s">PDF/скрин — достаточно для первичного расчёта.</span></div></div>
+          <div class="feature-item"><i data-lucide="camera"></i> <div><b data-i18n="params.card1.item2.b">Фото чертежей/планировки</b><span data-i18n="params.card1.item2.s">Даже фото с телефона подойдёт.</span></div></div>
         </div>
         <div class="card" style="border-color: rgba(255,204,102,0.30);">
-          <h4 style="margin: 0 0 16px;">Результат:</h4>
-          <div class="feature-item"><i data-lucide="check-square"></i> <div><b>КП + спецификация</b><span>Состав системы и объёмы под ваш объект.</span></div></div>
-          <div class="feature-item"><i data-lucide="truck"></i> <div><b>План поставки</b><span>График отгрузки и поддержки на старте.</span></div></div>
+          <h4 style="margin: 0 0 16px;" data-i18n="params.card2.title">Результат:</h4>
+          <div class="feature-item"><i data-lucide="check-square"></i> <div><b data-i18n="params.card2.item1.b">КП + спецификация</b><span data-i18n="params.card2.item1.s">Состав системы и объёмы под ваш объект.</span></div></div>
+          <div class="feature-item"><i data-lucide="truck"></i> <div><b data-i18n="params.card2.item2.b">План поставки</b><span data-i18n="params.card2.item2.s">График отгрузки и поддержки на старте.</span></div></div>
         </div>
       </div>
     </div>
@@ -631,35 +838,35 @@
 
   <section id="kit">
     <div class="container">
-      <h2 class="section-title">Состав туннельной системы + сервис</h2>
-      <p class="section-sub">Переориентировали раздел на “туннельную систему” и сопровождение проекта.</p>
+      <h2 class="section-title" data-i18n="kit.title">Состав туннельной системы + сервис</h2>
+      <p class="section-sub" data-i18n="kit.subtitle">Переориентировали раздел на “туннельную систему” и сопровождение проекта.</p>
 
       <div class="grid-3">
         <div class="card">
-          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="component"></i> Туннельная система</h3>
+          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="component"></i> <span data-i18n="kit.card1.title">Туннельная система</span></h3>
           <ul class="feature-list" style="margin-top: 20px;">
-            <li class="feature-item"><span><b>Щиты:</b> комплекты под типовой этаж (стены+перекрытия) с кратностью размеров.</span></li>
-            <li class="feature-item"><span><b>Соединения:</b> замки/крепёж для повторяемой сборки на циклах.</span></li>
-            <li class="feature-item"><span><b>Опоры и безопасность:</b> элементы устойчивости и контроля геометрии.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card1.li1"><b>Щиты:</b> комплекты под типовой этаж (стены+перекрытия) с кратностью размеров.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card1.li2"><b>Соединения:</b> замки/крепёж для повторяемой сборки на циклах.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card1.li3"><b>Опоры и безопасность:</b> элементы устойчивости и контроля геометрии.</span></li>
           </ul>
         </div>
 
         <div class="card">
-          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="sparkles"></i> Качество поверхности</h3>
+          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="sparkles"></i> <span data-i18n="kit.card2.title">Качество поверхности</span></h3>
           <ul class="feature-list" style="margin-top: 20px;">
-            <li class="feature-item"><span><b>Гладкие стены:</b> не требуют штукатурки (достаточно шпаклёвки).</span></li>
-            <li class="feature-item"><span><b>Стабильность:</b> одинаковое качество по циклам и этажам.</span></li>
-            <li class="feature-item"><span><b>Темп строительства:</b> быстрее сдача этажей и меньше простоев.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card2.li1"><b>Гладкие стены:</b> не требуют штукатурки (достаточно шпаклёвки).</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card2.li2"><b>Стабильность:</b> одинаковое качество по циклам и этажам.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card2.li3"><b>Темп строительства:</b> быстрее сдача этажей и меньше простоев.</span></li>
           </ul>
         </div>
 
         <div class="card">
-          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="wrench"></i> Сопровождение / обучение</h3>
+          <h3 style="display:flex; align-items:center; gap:10px;"><i data-lucide="wrench"></i> <span data-i18n="kit.card3.title">Сопровождение / обучение</span></h3>
           <ul class="feature-list" style="margin-top: 20px;">
-            <li class="feature-item"><span><b>Контроль сборки:</b> проверяем правильность монтажа системы.</span></li>
-            <li class="feature-item"><span><b>Поддержка первой заливки:</b> помогаем пройти старт без ошибок.</span></li>
-            <li class="feature-item"><span><b>Обучение подрядчика:</b> инструктаж персонала и регламенты.</span></li>
-            <li class="feature-item"><span><b>Техпомощь на объекте:</b> индивидуальная поддержка по узлам.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card3.li1"><b>Контроль сборки:</b> проверяем правильность монтажа системы.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card3.li2"><b>Поддержка первой заливки:</b> помогаем пройти старт без ошибок.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card3.li3"><b>Обучение подрядчика:</b> инструктаж персонала подрядчика и регламенты.</span></li>
+            <li class="feature-item"><span data-i18n-html="kit.card3.li4"><b>Техпомощь на объекте:</b> индивидуальная поддержка по узлам.</span></li>
           </ul>
         </div>
       </div>
@@ -668,12 +875,12 @@
 
   <section id="video">
     <div class="container">
-      <h2 class="section-title">Видео</h2>
-      <p class="section-sub">Посмотреть видео на YouTube.</p>
+      <h2 class="section-title" data-i18n="video.title">Видео</h2>
+      <p class="section-sub" data-i18n="video.subtitle">Посмотреть видео на YouTube.</p>
 
       <div class="card">
         <h3 style="display:flex; align-items:center; gap:10px; margin-top:0;">
-          <i data-lucide="play-circle"></i> Видео NSR Construction
+          <i data-lucide="play-circle"></i> <span data-i18n="video.cardTitle">Видео NSR Construction</span>
         </h3>
 
         <div class="video-wrap" style="margin-top: 18px;">
@@ -689,10 +896,10 @@
 
         <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
           <a class="btn" href="https://www.youtube.com/watch?v=rtJ2KyyjQxc" target="_blank" rel="noopener">
-            <i data-lucide="external-link" style="width:18px"></i> Открыть видео на YouTube
+            <i data-lucide="external-link" style="width:18px"></i> <span data-i18n="video.openVideo">Открыть видео на YouTube</span>
           </a>
           <a class="btn" href="https://youtube.com/@nsrconstructionn?si=6F6xguWglU6hwVMo" target="_blank" rel="noopener">
-            <i data-lucide="youtube" style="width:18px"></i> Перейти на канал
+            <i data-lucide="youtube" style="width:18px"></i> <span data-i18n="video.openChannel">Перейти на канал</span>
           </a>
         </div>
       </div>
@@ -701,26 +908,26 @@
 
   <section id="faq">
     <div class="container">
-      <h2 class="section-title">FAQ по производству и поставке</h2>
+      <h2 class="section-title" data-i18n="faq.title">FAQ по производству и поставке</h2>
       <div style="max-width: 860px;">
         <details>
-          <summary>Какая география поставки? <i data-lucide="chevron-down" style="width:18px"></i></summary>
-          <p>Поставляем по странам СНГ. Поддержка предоставляется вне зависимости от страны или региона реализации проекта.</p>
+          <summary><span data-i18n="faq.q1">Какая география поставки?</span> <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p data-i18n="faq.a1">Поставляем по странам СНГ. Поддержка предоставляется вне зависимости от страны или региона реализации проекта.</p>
         </details>
 
         <details>
-          <summary>Что вы даёте вместе с системой? <i data-lucide="chevron-down" style="width:18px"></i></summary>
-          <p>Сопровождение, обучение и сервис: контроль сборки, поддержка первой заливки, обучение персонала подрядчика и индивидуальная техническая помощь на объекте.</p>
+          <summary><span data-i18n="faq.q2">Что вы даёте вместе с системой?</span> <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p data-i18n="faq.a2">Сопровождение, обучение и сервис: контроль сборки, поддержка первой заливки, обучение персонала подрядчика и индивидуальная техническая помощь на объекте.</p>
         </details>
 
         <details>
-          <summary>Насколько “ровные” стены после туннельной технологии? <i data-lucide="chevron-down" style="width:18px"></i></summary>
-          <p>Гладкие стены — не требуют штукатурки, как правило достаточно шпаклёвки. Это снижает расходы и ускоряет отделочные работы.</p>
+          <summary><span data-i18n="faq.q3">Насколько “ровные” стены после туннельной технологии?</span> <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p data-i18n="faq.a3">Гладкие стены — не требуют штукатурки, как правило достаточно шпаклёвки. Это снижает расходы и ускоряет отделочные работы.</p>
         </details>
 
         <details>
-          <summary>Сколько циклов выдерживает система? <i data-lucide="chevron-down" style="width:18px"></i></summary>
-          <p>Система рассчитана на 500–700 циклов бетонирования и изготовлена из высокопрочной стали — долговечная и устойчивая к износу.</p>
+          <summary><span data-i18n="faq.q4">Сколько циклов выдерживает система?</span> <i data-lucide="chevron-down" style="width:18px"></i></summary>
+          <p data-i18n="faq.a4">Система рассчитана на 500–700 циклов бетонирования и изготовлена из высокопрочной стали — долговечная и устойчивая к износу.</p>
         </details>
       </div>
     </div>
@@ -730,27 +937,27 @@
     <div class="container">
       <div class="grid-2">
         <div>
-          <h2 style="margin: 0 0 24px;">Связаться с инженером</h2>
+          <h2 style="margin: 0 0 24px;" data-i18n="footer.contactTitle">Связаться с инженером</h2>
           <div style="display: grid; gap: 16px;">
             <a href="tel:+905466573423" class="feature-item">
               <i data-lucide="phone"></i>
-              <div><b>Телефон (TR)</b><span>+90 546 657 34 23</span></div>
+              <div><b data-i18n="footer.phoneTRLabel">Телефон (TR)</b><span>+90 546 657 34 23</span></div>
             </a>
 
             <a href="tel:+996706909521" class="feature-item">
               <i data-lucide="phone"></i>
-              <div><b>Телефон (KG)</b><span>+996 706 90 95 21</span></div>
+              <div><b data-i18n="footer.phoneKGLabel">Телефон (KG)</b><span>+996 706 90 95 21</span></div>
             </a>
 
-            <!-- WhatsApp (правильная иконка через SVG) -->
+            <!-- WhatsApp -->
             <a href="https://wa.me/996706909521" class="feature-item" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path fill="#25D366" d="M20.52 3.48A11.91 11.91 0 0 0 12.01 0C5.4 0 .05 5.35.05 11.95c0 2.1.55 4.16 1.6 5.98L0 24l6.23-1.63a11.9 11.9 0 0 0 5.78 1.48h.01c6.6 0 11.95-5.35 11.95-11.95 0-3.19-1.24-6.19-3.45-8.42ZM12.01 21.9h-.01a9.95 9.95 0 0 1-5.07-1.39l-.36-.21-3.7.97.99-3.61-.23-.37a9.95 9.95 0 0 1-1.53-5.34C2.1 6.43 6.49 2.05 12.02 2.05c2.65 0 5.15 1.03 7.03 2.9a9.87 9.87 0 0 1 2.92 7.01c0 5.52-4.48 9.94-9.96 9.94Zm5.77-7.43c-.31-.15-1.85-.91-2.14-1.01-.29-.11-.5-.15-.71.15-.21.31-.82 1.01-1 1.22-.18.2-.36.23-.67.08-.31-.15-1.29-.47-2.46-1.51-.91-.81-1.52-1.81-1.7-2.12-.18-.31-.02-.48.14-.63.14-.14.31-.36.46-.54.15-.18.2-.31.31-.52.1-.21.05-.39-.03-.54-.08-.15-.71-1.71-.97-2.34-.26-.62-.52-.53-.71-.54h-.6c-.2 0-.54.08-.82.39-.28.31-1.08 1.05-1.08 2.56s1.11 2.97 1.26 3.17c.15.21 2.19 3.34 5.31 4.69.74.32 1.32.51 1.77.66.74.24 1.41.21 1.95.13.59-.09 1.85-.76 2.11-1.49.26-.73.26-1.36.18-1.49-.08-.13-.29-.21-.6-.36Z"/>
               </svg>
-              <div><b>WhatsApp</b><span>Написать инженеру</span></div>
+              <div><b>WhatsApp</b><span data-i18n="footer.whatsappText">Написать инженеру</span></div>
             </a>
 
-            <!-- Instagram (правильная ссылка + иконка) -->
+            <!-- Instagram -->
             <a href="https://www.instagram.com/nsr.construction?igsh=MXhxMzFzMWw0NXFmcA==" class="feature-item" target="_blank" rel="noopener">
               <i data-lucide="instagram" class="ig-icon"></i>
               <div><b>Instagram</b><span>nsr.construction</span></div>
@@ -758,29 +965,31 @@
 
             <div class="feature-item">
               <i data-lucide="mail"></i>
-              <div><b>Email</b><span>sale@nsr.kg • ceo@nsr.kg</span></div>
+              <div><b>Email</b><span>nsr.constructionn@gmail.com</span></div>
             </div>
 
             <a href="https://nsr-construction.kg" class="feature-item" target="_blank" rel="noopener">
               <i data-lucide="globe"></i>
-              <div><b>Сайт</b><span>www.nsrformwork.com</span></div>
+              <div><b data-i18n="footer.siteLabel">Сайт</b><span>www.nsrformwork.com</span></div>
             </a>
 
             <div class="feature-item">
               <i data-lucide="map-pin"></i>
-              <div><b>Адрес</b><span>ул. Садырбаева, 261</span></div>
+              <div><b data-i18n="footer.addressLabel">Адрес</b><span data-i18n="footer.addressValue">ул. Садырбаева, 261</span></div>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <h3 style="margin: 0 0 16px;">Поставка и поддержка</h3>
-          <p style="color: var(--muted); font-size: 14px;">
+          <h3 style="margin: 0 0 16px;" data-i18n="footer.blockTitle">Поставка и поддержка</h3>
+          <p style="color: var(--muted); font-size: 14px;" data-i18n-html="footer.blockText">
             Производство и поставка туннельной опалубки по СНГ.<br>
             Сопровождение, обучение и сервис на объекте.
           </p>
           <div style="margin-top: 32px; border-top: 1px solid var(--line); padding-top: 24px;">
-            <p style="font-size: 12px; color: var(--muted); line-height: 1.4;">© <span id="year"></span> NSR Construction. Все права защищены.</p>
+            <p style="font-size: 12px; color: var(--muted); line-height: 1.4;">
+              © <span id="year"></span> NSR Construction. <span data-i18n="footer.rights">Все права защищены.</span>
+            </p>
           </div>
         </div>
       </div>
@@ -788,13 +997,13 @@
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <button class="btn primary" data-open-modal="quote"><i data-lucide="calculator" style="width:18px"></i> Запрос КП</button>
+    <button class="btn primary" data-open-modal="quote"><i data-lucide="calculator" style="width:18px"></i> <span data-i18n="cta.requestQuoteShort">Запрос КП</span></button>
   </div>
 
   <div class="modal" id="modal">
     <div class="modal-card">
       <div class="modal-head">
-        <b id="modalTitle">Запрос КП</b>
+        <b id="modalTitle" data-i18n="modal.title">Запрос КП</b>
         <button class="x" onclick="closeModal()" style="background:none; border:none; color:white; cursor:pointer;">
           <i data-lucide="x"></i>
         </button>
@@ -802,33 +1011,55 @@
       <div class="modal-body">
         <form id="leadForm" class="form">
           <div class="field">
-            <label>Ваше имя</label>
-            <input id="name" type="text" placeholder="Айбек" required>
+            <label data-i18n="form.nameLabel">Ваше имя</label>
+            <input id="name" type="text" placeholder="Айбек" required data-i18n-placeholder="form.namePh">
           </div>
           <div class="field">
-            <label>Телефон</label>
-            <input id="phone" type="tel" placeholder="+996 (___) ___-___" required>
+            <label data-i18n="form.phoneLabel">Телефон</label>
+            <input id="phone" type="tel" placeholder="+996 (___) ___-___" required data-i18n-placeholder="form.phonePh">
           </div>
           <div class="field full">
-            <label>Описание задачи (город/страна, этажность, типовой этаж)</label>
-            <textarea id="message" placeholder="ЖК: 12 эт.; этаж ~650 м²; h=3,0 м; локация: …; старт: …"></textarea>
+            <label data-i18n="form.msgLabel">Описание задачи (город/страна, этажность, типовой этаж)</label>
+            <textarea id="message" placeholder="ЖК: 12 эт.; этаж ~650 м²; h=3,0 м; локация: …; старт: …" data-i18n-placeholder="form.msgPh"></textarea>
           </div>
           <div class="full">
-            <button type="submit" class="btn primary" style="width: 100%; justify-content: center;">Отправить запрос инженеру</button>
+            <button type="submit" class="btn primary" style="width: 100%; justify-content: center;" data-i18n="form.submit">
+              Отправить запрос инженеру
+            </button>
           </div>
         </form>
       </div>
     </div>
   </div>
 
+  <!-- i18next (Variant B: JSON files) -->
+  <script src="https://unpkg.com/i18next@23/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend@2/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@7/i18nextBrowserLanguageDetector.min.js"></script>
+
   <script>
     lucide.createIcons();
+
+    const LANGS = [
+      { code: 'ru', label: 'RU', name: 'Русский', flag: '🇷🇺' },
+      { code: 'en', label: 'EN', name: 'English', flag: '🇬🇧' },
+      { code: 'ky', label: 'KY', name: 'Кыргызча', flag: '🇰🇬' },
+      { code: 'uz', label: 'UZ', name: 'O‘zbek', flag: '🇺🇿' },
+      { code: 'kk', label: 'KZ', name: 'Қазақша', flag: '🇰🇿' },
+    ];
 
     const DOM = {
       modal: document.getElementById('modal'),
       sticky: document.getElementById('stickyCta'),
       form: document.getElementById('leadForm'),
-      year: document.getElementById('year')
+      year: document.getElementById('year'),
+
+      // ✅ lang dropdown
+      langDD: document.getElementById('langDD'),
+      langBtn: document.getElementById('langBtn'),
+      langMenu: document.getElementById('langMenu'),
+      langFlag: document.getElementById('langFlag'),
+      langCode: document.getElementById('langCode'),
     };
 
     function openModal(mode) {
@@ -851,9 +1082,138 @@
 
     DOM.year.textContent = new Date().getFullYear();
 
+    // ===== i18n helpers =====
+    function applyI18nToDOM() {
+      // text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = i18next.t(key);
+      });
+
+      // html nodes
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        el.innerHTML = i18next.t(key);
+      });
+
+      // placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        el.setAttribute('placeholder', i18next.t(key));
+      });
+
+      // meta + title
+      const metaDesc = document.querySelector('meta[name="description"][data-i18n-meta="meta.description"]');
+      if (metaDesc) metaDesc.setAttribute('content', i18next.t('meta.description'));
+
+      const titleEl = document.querySelector('title[data-i18n-title="meta.title"]');
+      if (titleEl) document.title = i18next.t('meta.title');
+
+      // html lang
+      document.documentElement.lang = i18next.language || 'ru';
+
+      // ✅ sync custom language UI
+      const lng = (i18next.language || 'ru').split('-')[0];
+      const current = LANGS.find(x => x.code === lng) || LANGS[0];
+
+      DOM.langFlag.textContent = current.flag;
+      DOM.langCode.textContent = current.label;
+
+      // active in menu
+      DOM.langMenu.querySelectorAll('.lang-item').forEach(item => {
+        item.classList.toggle('active', item.dataset.lang === current.code);
+      });
+    }
+
+    function setLanguage(lng) {
+      i18next.changeLanguage(lng).then(() => {
+        localStorage.setItem('nsr_lang', lng);
+        applyI18nToDOM();
+      });
+    }
+
+    // ===== Custom Dropdown Logic =====
+    function openLangMenu() {
+      DOM.langDD.classList.add('open');
+      DOM.langBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeLangMenu() {
+      DOM.langDD.classList.remove('open');
+      DOM.langBtn.setAttribute('aria-expanded', 'false');
+    }
+    function toggleLangMenu() {
+      const isOpen = DOM.langDD.classList.contains('open');
+      if (isOpen) closeLangMenu();
+      else openLangMenu();
+    }
+
+    DOM.langBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleLangMenu();
+    });
+
+    DOM.langMenu.querySelectorAll('.lang-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lng = btn.dataset.lang;
+        setLanguage(lng);
+        closeLangMenu();
+      });
+    });
+
+    // close on outside click
+    document.addEventListener('click', (e) => {
+      if (!DOM.langDD.contains(e.target)) closeLangMenu();
+    });
+
+    // close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLangMenu();
+    });
+
+    // init i18next (loads /locales/{lng}.json)
+    (function initI18n() {
+      const saved = localStorage.getItem('nsr_lang');
+      const fallbackLng = 'ru';
+
+      i18next
+        .use(i18nextHttpBackend)
+        .use(i18nextBrowserLanguageDetector)
+        .init({
+          fallbackLng,
+          supportedLngs: ['ru','en','ky','uz','kk'],
+          nonExplicitSupportedLngs: true,
+          load: 'languageOnly',
+          debug: false,
+          detection: {
+            order: ['localStorage', 'navigator'],
+            caches: [] // we manage localStorage ourselves (nsr_lang)
+          },
+          backend: {
+            loadPath: './locales/{{lng}}.json'
+          }
+        })
+        .then(() => {
+          // if we have explicit saved, enforce it
+          if (saved && ['ru','en','ky','uz','kk'].includes(saved)) {
+            return i18next.changeLanguage(saved);
+          }
+        })
+        .then(() => {
+          applyI18nToDOM();
+          // icons inside dropdown menu and checks
+          lucide.createIcons();
+        })
+        .catch((err) => {
+          console.warn('[i18n] init error:', err);
+          // still apply RU defaults
+          applyI18nToDOM();
+          lucide.createIcons();
+        });
+    })();
+
     DOM.form.onsubmit = (e) => {
       e.preventDefault();
-      alert("Спасибо! Мы получили запрос. Инженер свяжется с вами в ближайшее время.");
+      alert(i18next.t('alerts.thanks'));
       closeModal();
       DOM.form.reset();
     };
@@ -867,7 +1227,8 @@
       const formatNumber = (value, type) => {
         if (type === 'm2') {
           const v = Math.round(value);
-          return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '+ м²';
+          const formatted = v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+          return formatted + i18next.t('units.m2Plus'); // e.g. "+ м²"
         }
         return Math.round(value).toString();
       };
